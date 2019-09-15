@@ -1,12 +1,10 @@
 //VARIABLES
 
-var targetNumber = 0;
 
-function getRandomTargetNumber(targetNumber){
-    return targetNumber = Math.random * (min - max + 1);
-        min = 19;
-        max = 120;
-}
+
+var min = 19;
+var max = 120;
+var targetNumber = Math.floor(Math.random() * (+max - +min) + +min);
     
 
 // var counter = 0;
