@@ -1,15 +1,12 @@
 //VARIABLES
 
-
-
 var min = 19;
 var max = 120;
 var targetNumber = Math.floor(Math.random() * (+max - +min) + +min);
-    
-
-// var counter = 0;
 
 $("#target-score-to-guess").text(targetNumber);
+
+// var counter = 0;
 
 // var randomNumberOptions = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
 
