@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+    <title>Crystal Collector!</title>
+  </head>
+  <body>
+
+    <div class="jumbotron jumbotron-fluid">
+        <div class="container">
+          <h1 class="display-4">Crystal Collectors</h1>
+        </div>
+    </div>
+
+    <div class="card mb-3">
+            <div class="card-body">
+              <h5 class="card-title">Instructions</h5>
+              <p class="card-text">You will be given a random number at the start of the game. There are four crystals to the right. 
+                  By clicking on a crystal, you will add a specific amount of points to your score. You win the game by matching your score 
+                  to the random number. You lose the game if your score goes above the random number. The value of each crystal is hidden from 
+                  you until you click on it. Each time a new game begins, the game will change the values of each crystal.</p>
+            </div>
+    </div>
+    <div class="card-columns">
+            <div class="card text center">
+              <div class="card-body">
+                <h5 class="card-title">Target Score</h5>
+                <p class="card-text"><span id="target-score-to-guess"></span></p>
+              </div>
+            </div>
+            <div class="card p-3">
+                <h5 class="card-title">Your Score</h5>
+                <p>0</p>
+            </div>
+            <div class="card text text-center">
+              <div class="card-body">
+                <h5 class="card-title">Wins</h5>
+                <p class="card-text">0</p>
+              </div>
+            </div>
+            <div class="card text-center">
+              <div class="card-body">
+                <h5 class="card-title">Losses</h5>
+                <p class="card-text">0</p>
+              </div>
+            </div>            
+            <div class="card">
+              <div class="card-body">
+                <h5 class="card-title">Crystals</h5>
+                <p class="card-text">
+                    <img src="assets/images/gem-clipart-yellow-gem-5.png" class="rounded" alt="yellow crystal" height="70px" width="80px"><span id="yellow-crystal"></span>
+                    <img src="assets/images/gem-clipart-square-gem-2.png" class="rounded" alt="red crystal" height="75px" width="75px"><span id="red-crystal"></span>
+                    <img src="assets/images/gem-clipart-green-14.png" class="rounded" alt="green crystal" height="80px" width="70px"><span id="green-crystal"></span>
+                    <img src="assets/images/gem-clipart-circle-12.png" class="rounded" alt="indigo crystal" height="70px" width="70px"><span id="indigo-crystal"></span>
+                </p>
+              </div>
+            </div>
+          </div>
+
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <script src="assets/javascript/game.js"></script>
+  </body>
+</html>
