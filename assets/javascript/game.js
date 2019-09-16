@@ -1,31 +1,86 @@
-//VARIABLES
+//VARIABLES DECLARED
 
-var min = 19;
-var max = 120;
-var targetNumber = Math.floor(Math.random() * (+max - +min) + +min);
+var targetScoreMin = 19;   // this is the min number the Target Score can be
+var targetScoreMax = 120;  // this is the max number the Target Score can be
+var yourScore = 0;
+var wins = 0;
+var losses = 0;
 
-$("#target-score-to-guess").text(targetNumber); // game begins with target number 
+var targetNumber = Math.floor(Math.random() * (+targetScoreMax - +targetScoreMin) + +targetScoreMin);    // creating a random Target Score number when game page is refreshed
 
+$("#target-score-to-guess").text(targetNumber); //showing the random generated number under the Target Score title; ref html page
+    
     console.log("Target Number: " + targetNumber);
 
 
-// each crystal contains a random, hidden number
-var counter = 0;    //the counter begins at 0
+// A random number is generated and stored in each crystal image.
 
-var randomCrystalNumOptions = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]; //number/value randomly assigned to each crystal at the start of a new game
+//for the YELLOW crystal:
+var randomYellowCrystalValue = Math.ceil(Math.random() * 12);
 
-for(var i = 0; i < randomCrystalNumOptions.length; i++) {   //creating a for loop for each randomCrystalNumOption
-    var imageCrystal = $("<img>"); // for each iteration; a crystal image will take in a NumOption
+for(var i = 0; i < randomYellowCrystalValue; i++) {   //creating a for loop for each randomCrystalNumOption
+    var yellowCrystal = $("<img>"); // for each iteration; a crystal image will take in a NumOption
+    yellowCrystal.addClass("yellow-crystal");    //adding a class for each crystal image. Referencing html file span names
+    yellowCrystal.attr("data-valueforyellowcrystal", randomYellowCrystalValue);    //giving each imageCrystal an attribute of a data-value
+}
+    console.log("Yellow Crystal Value: " + randomYellowCrystalValue);
 
-    imageCrystal.addClass("yellow-crystal");    //adding a class for each crsytal image. Referencing html file span names
-    imageCrystal.addClass("red-crystal");
-    imageCrystal.addClass("green-crystal");
-    imageCrystal.addClass("indigo-crystal");
+//for the RED crystal:
+var randomRedCrystalValue = Math.ceil(Math.random() * 12);
+
+for(var i = 0; i < randomRedCrystalValue; i++) {   //creating a for loop for each randomCrystalNumOption
+    var redCrystal = $("<img>"); // for each iteration; a crystal image will take in a NumOption
+    redCrystal.addClass("red-crystal");    //adding a class for each crystal image. Referencing html file span names
+    redCrystal.attr("data-valueforredcrystal", randomRedCrystalValue);    //giving each imageCrystal an attribute of a data-value
 }
 
+    console.log("Red Crystal Value: " + randomRedCrystalValue);
 
-// $("#yellow-crystal").on("click", function()) {
-// }
+//for the greenGREEN crystal:
+var randomGreenCrystalValue = Math.ceil(Math.random() * 12);
+
+for(var i = 0; i < randomGreenCrystalValue; i++) {   //creating a for loop for each randomCrystalNumOption
+    var greenCrystal = $("<img>");  // for each iteration; a crystal image will take in a NumOption
+    greenCrystal.addClass("green-crystal");    //adding a class for each crystal image. Referencing html file span names
+    greenCrystal.attr("data-valueforgreencrystal", randomGreenCrystalValue);    //giving each imageCrystal an attribute of a data-value
+}
+
+    console.log("Green Crystal Value: " + randomGreenCrystalValue);
+    
+//for the INDIGO crystal:
+var randomIndigoCrystalValue = Math.ceil(Math.random() * 12);
+
+for(var i = 0; i < randomIndigoCrystalValue; i++) {   //creating a for loop for each randomCrystalNumOption
+    var indigoCrystal = $("<img>"); // for each iteration; a crystal image will take in a NumOption
+    indigoCrystal.addClass("indigo-crystal");    //adding a class for each crystal image. Referencing html file span names
+    indigoCrystal.attr("data-valueforindigocrystal", randomIndigoCrystalValue);    //giving each imageCrystal an attribute of a data-value
+}
+
+    console.log("Indigo Crystal Value: " + randomIndigoCrystalValue);
+
+
+// BEGINNING THE GAME
+
+    $(".image-crystal").on("click", function() {    // after a Target Score is genereated, the game begins when player clicks on an image-crystal
+
+    var yellowCrystalValue = ($(this).attr("data-valueforyellowcrystal"));   //extracting value of the clikced crystal
+    var redCrystalValue = ($(this).attr("data-valueforredcrystal"));
+    var greenCrystalValue = ($(this).attr("data-valueforgreencrystal"));
+    var indigoCrystalValue = ($(this).attr("data-valueforindigocrystal"));
+
+    yellowCrystalValue = parseInt(yellowCrystalValue);
+    redCrystalValue = parseInt(redCrystalValue);
+    greenCrystalValue = parseInt(greenCrystalValue);
+    indigoCrystalValue = parseInt(indigoCrystalValue);
+
+
+    yourScore += yellowCrystalValue + redCrystalValue + greenCrystalValue + indigoCrystalValue;
+
+    $("#your-score-is").text(yourScore);
+
+    // yellowvalue + redvalue + greenvalue + indigovalue = yourScore
+
+});
 
 
 
