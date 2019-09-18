@@ -1,5 +1,19 @@
 
 .crystal-images {
     height: 80px;
-    width: 70px;
+    width: 89x;
+}
+
+h1 {
+    font-family: monospace;
+}
+
+h5 {
+    font-family: monospace;
+    font-size: 20px;
+}
+
+p {
+    font-family: monospace;
+    font-size: 14px;
 }

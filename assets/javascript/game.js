@@ -11,62 +11,79 @@ var targetScore = createTargetScore();
 function createTargetScore(){
     var randomNumber = Math.floor(Math.random() * (+targetScoreMax - +targetScoreMin) + +targetScoreMin);    // creating a random Target Score number when game page is refreshed
     $("#target-score-to-guess").text(randomNumber); //showing the random generated number under the Target Score title; ref html page
-    console.log("Target Number: " + randomNumber);
+    console.log("Target Score: " + randomNumber);
     return randomNumber;
 }
 
-// A random number is generated and stored in each crystal image.
+// GENERATE RANDOM NUMBER FOR EACH CRYSTAL --
+// store the randomly generated number in each crystal image
 
 var yourScore = 0;
 
 function getRandomCrystalValue() {
     return Math.ceil(Math.random() * 12);
 }
-
-for (var i = 0; i < getRandomCrystalValue; i++) {
+console.log("Random Value: " + getRandomCrystalValue());
+for (var i = 0; i < 4; i++) {
     var crystalImage = $("<img>");
-    crystalImage.addClass("crystal-image");
-    crystalImage.attr("src", "assets/images/gem-clipart-yellow-gem-5.png");
-    crystalImage.attr("data-value-for-crystals", getRandomCrystalValue);
+    
+    crystalImage.addClass("crystal-images");
+    crystalImage.html("<img>");
+    crystalImage.attr({
+        "src": './assets/images/gem-clipart-yellow-gem-5.png', 
+        "src": './assets/images/gem-clipart-square-gem-2.png', 
+        "src": './assets/images/gem-clipart-green-14.png',
+        "src": './assets/images/gem-clipart-circle-12.png'
+    }); 
+    crystalImage.attr("data-value-for-crystals", getRandomCrystalValue());
     $("#crystals").append(crystalImage);
+    
 }
-
-
+    
 // BEGINNING THE GAME --
 
 $(".crystal-images").on("click", function() {    // after a Target Score is genereated, the game begins when player clicks on an image-crystal
 
-    
     var crystalValue = ($(this).attr("data-value-for-crystals"));
-    // var redCrystalValue = ($(this).attr("data-valueforredcrystal"));
-    // var greenCrystalValue = ($(this).attr("data-valueforgreencrystal"));
-    // var indigoCrystalValue = ($(this).attr("data-valueforindigocrystal"));
-
+    console.log("Crystal value: " + crystalValue);
     crystalValue = parseInt(crystalValue);
-    // redCrystalValue = parseInt(redCrystalValue);
-    // greenCrystalValue = parseInt(greenCrystalValue);
-    // indigoCrystalValue = parseInt(indigoCrystalValue);
-
 
     // for (yourScore = 0; yourScore < crystalValue; yourScore++){
     //     return yourScore;
     // }
 
-    yourScore = yourScore + crystalValue;
+    yourScore += crystalValue;
 
     $("#your-score-is").text(yourScore);
-    // if (yourScore === targetNumber) {
-    //     alert("You win!");
-    //   }
-  
-    //   else if (yourScore >= targetNumber) {
-    //     alert("You lose!!");
-    //   }
+    console.log("Your Score: " + yourScore);
     
+    function checkYourScore(){
+        if (yourScore === targetScore) {
+            wins++;
+        }
+        else (yourScore >= targetScore);{
+            losses++;
+        }
+    } 
+
+    // function newGame() {
+    //     document.getElementById("crystalGame").reset();
+    //   }
+
 });
 
-    console.log("Your Score:" + yourScore);
 
+
+    // function reset() {
+
+    //     time = 0;
+    //     lap = 1;
+      
+    //     //  TODO: Change the "display" div to "00:00."
+      
+    //     $("#display").text("00:00");
+    //   }
+    //   reset();
 
 
 
