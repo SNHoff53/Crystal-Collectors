@@ -1,3 +1,4 @@
+
 //VARIABLES DECLARED --
 
 const targetScoreMin = 19;   // this is the min number the Target Score can be
@@ -5,6 +6,7 @@ const targetScoreMax = 120;  // this is the max number the Target Score can be
 
 var wins = 0;
 var losses = 0;
+
 
 var targetScore = createTargetScore();
 
@@ -23,21 +25,19 @@ var yourScore = 0;
 function getRandomCrystalValue() {
     return Math.ceil(Math.random() * 12);
 }
+
+var images = ["./assets/images/yellow-gem.png", "./assets/images/red-gem.png", "./assets/images/green-gem.png", "./assets/images/indigo-gem.png"]
+
 console.log("Random Value: " + getRandomCrystalValue());
-for (var i = 0; i < 4; i++) {
+
+for (var i = 0; i < images.length; i++) {
     var crystalImage = $("<img>");
     
     crystalImage.addClass("crystal-images");
     crystalImage.html("<img>");
-    crystalImage.attr({
-        "src": './assets/images/gem-clipart-yellow-gem-5.png', 
-        "src": './assets/images/gem-clipart-square-gem-2.png', 
-        "src": './assets/images/gem-clipart-green-14.png',
-        "src": './assets/images/gem-clipart-circle-12.png'
-    }); 
+    crystalImage.attr("src", images[i]);
     crystalImage.attr("data-value-for-crystals", getRandomCrystalValue());
-    $("#crystals").append(crystalImage);
-    
+    $("#crystals").append(crystalImage);   
 }
     
 // BEGINNING THE GAME --
@@ -48,42 +48,37 @@ $(".crystal-images").on("click", function() {    // after a Target Score is gene
     console.log("Crystal value: " + crystalValue);
     crystalValue = parseInt(crystalValue);
 
-    // for (yourScore = 0; yourScore < crystalValue; yourScore++){
-    //     return yourScore;
-    // }
-
     yourScore += crystalValue;
 
     $("#your-score-is").text(yourScore);
     console.log("Your Score: " + yourScore);
     
+    checkYourScore();
+    
     function checkYourScore(){
         if (yourScore === targetScore) {
             wins++;
-        }
-        else (yourScore >= targetScore);{
+            $("#number-of-wins").text(wins);
+        } else if (yourScore > targetScore){
             losses++;
+            $("#number-of-losses").text(losses);
+        } else {
+            return;
         }
     } 
 
-    // function newGame() {
-    //     document.getElementById("crystalGame").reset();
-    //   }
+    reset();
 
+    function reset(){
+        wins = 0;
+        losses = 0;
+    }
 });
 
 
+    
 
-    // function reset() {
 
-    //     time = 0;
-    //     lap = 1;
-      
-    //     //  TODO: Change the "display" div to "00:00."
-      
-    //     $("#display").text("00:00");
-    //   }
-    //   reset();
 
 
 
