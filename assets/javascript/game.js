@@ -4,10 +4,10 @@
 const targetScoreMin = 19;   // this is the min number the Target Score can be
 const targetScoreMax = 120;  // this is the max number the Target Score can be
 
-var wins = 0;
-var losses = 0;
-var targetScore;
-var yourScore;
+var wins = document.getElementById("number-of-wins").textContent = "0";;
+var losses = document.getElementById("number-of-losses").textContent = "0";;
+var targetScore = document.getElementById("target-score-to-guess");
+var yourScore = document.getElementById("your-score-is").textContent = "0";
 
 initializeGame();
 
@@ -29,8 +29,7 @@ function getRandomCrystalValue() {
 // GENERATE RANDOM NUMBER FOR EACH CRYSTAL --
 // store the randomly generated number in each crystal image
 function crystalSetUp(){
-    var images = ["./assets/images/yellow-gem.png", "./assets/images/red-gem.png", "./assets/images/indigo-gem.png", "./assets/images/green-gem.png"]
-    console.log("Random Value: " + getRandomCrystalValue());
+    var images = ["./assets/images/indigo-gem.png", "./assets/images/red-gem.png", "./assets/images/green-gem.png", "./assets/images/yellow-gem.png"]
 
     for (var i = 0; i < images.length; i++) {
         var crystalImage = $("<img>");
@@ -52,6 +51,7 @@ function createTargetScore(){
 function initializeGame(){
     targetScore = createTargetScore();
     crystalSetUp();
+    getRandomCrystalValue();
     yourScore = 0;
 }
 
