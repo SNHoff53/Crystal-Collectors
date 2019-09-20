@@ -21,7 +21,6 @@ function gameRestart(){
     targetScore = createTargetScore();
     yourScore = 0;
 }
-gameRestart();
 
 function getRandomCrystalValue() {
     return Math.ceil(Math.random() * 12);
@@ -50,7 +49,7 @@ function createTargetScore(){
     return randomNumber;
 }
 
-function initializeGame() {
+function initializeGame(){
     targetScore = createTargetScore();
     crystalSetUp();
     yourScore = 0;
