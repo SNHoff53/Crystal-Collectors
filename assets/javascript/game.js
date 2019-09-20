@@ -17,10 +17,11 @@ $(".crystal-images").on("click", function() {
 
 });
 
-function restartTheGame(){
-    
+function gameRestart(){
+    targetScore = createTargetScore();
+    yourScore = 0;
 }
-restartTheGame();
+gameRestart();
 
 function getRandomCrystalValue() {
     return Math.ceil(Math.random() * 12);
@@ -71,9 +72,11 @@ function checkYourScore(){
     if (yourScore === targetScore) {
         wins++;
         $("#number-of-wins").text(wins);
+        gameRestart();
     } else if (yourScore > targetScore){
         losses++;
         $("#number-of-losses").text(losses);
+        gameRestart();
     } else {
         return;
     }
