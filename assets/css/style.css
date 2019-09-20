@@ -3,10 +3,6 @@ body{
     background-size: auto;
 }
 
-.background {
-    opacity: 0.3;
-}
-
 .jumbotron {
     background-color: lightgoldenrodyellow;
 }
