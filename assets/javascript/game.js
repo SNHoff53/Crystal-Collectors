@@ -19,6 +19,7 @@ $(".crystal-images").on("click", function() {
 
 function gameRestart(){
     targetScore = createTargetScore();
+    getRandomCrystalValue();
     yourScore = 0;
 }
 
@@ -29,7 +30,7 @@ function getRandomCrystalValue() {
 // GENERATE RANDOM NUMBER FOR EACH CRYSTAL --
 // store the randomly generated number in each crystal image
 function crystalSetUp(){
-    var images = ["./assets/images/indigo-gem.png", "./assets/images/red-gem.png", "./assets/images/green-gem.png", "./assets/images/yellow-gem.png"]
+    var images = ["./assets/images/purple-crystal.jpg", "./assets/images/pink-crystal.jpg", "./assets/images/white-crystal.jpg", "./assets/images/gold-crystal.jpg"]
 
     for (var i = 0; i < images.length; i++) {
         var crystalImage = $("<img>");
@@ -51,7 +52,6 @@ function createTargetScore(){
 function initializeGame(){
     targetScore = createTargetScore();
     crystalSetUp();
-    getRandomCrystalValue();
     yourScore = 0;
 }
 

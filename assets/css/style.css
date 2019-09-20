@@ -1,8 +1,20 @@
+body{
+    background-image: url("/Users/stephaniehoffman/unit-4-game/assets/images/multicolored-crystal.jpg");
+    background-size: auto;
+}
+
+.background {
+    opacity: 0.1;
+}
+
+.jumbotron {
+    background-color: lightgoldenrodyellow;
+}
 
 .crystal-images {
     height: 78px;
-    width: 82px;
-    padding: 4px;
+    width: 81px;
+    padding: 2px;
 }
 
 h1 {
@@ -16,5 +28,5 @@ h5 {
 
 p {
     font-family: monospace;
-    font-size: 17px;
+    font-size: 18px;
 }
