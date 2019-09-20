@@ -1,4 +1,3 @@
-
 //VARIABLES DECLARED --
 
 const targetScoreMin = 19;   // this is the min number the Target Score can be
@@ -9,18 +8,17 @@ var losses = document.getElementById("number-of-losses").textContent = "0";;
 var targetScore = document.getElementById("target-score-to-guess");
 var yourScore = document.getElementById("your-score-is").textContent = "0";
 
-initializeGame();
+runNewGame();
 
-$(".crystal-images").on("click", function() {
-    incrementScoreByCrystalValue(this);
-    checkYourScore();
-
-});
-
-function gameRestart(){
+function runNewGame(){
     targetScore = createTargetScore();
-    getRandomCrystalValue();
+    crystalSetUp();
     yourScore = 0;
+
+    $(".crystal-images").on("click", function() {
+        incrementScoreByCrystalValue(this);
+        checkYourScore();
+    });
 }
 
 function getRandomCrystalValue() {
@@ -29,9 +27,10 @@ function getRandomCrystalValue() {
 
 // GENERATE RANDOM NUMBER FOR EACH CRYSTAL --
 // store the randomly generated number in each crystal image
-function crystalSetUp(){
+function crystalSetUp() {
     var images = ["./assets/images/purple-crystal.jpg", "./assets/images/pink-crystal.jpg", "./assets/images/white-crystal.jpg", "./assets/images/gold-crystal.jpg"]
 
+    $("#crystals").empty();
     for (var i = 0; i < images.length; i++) {
         var crystalImage = $("<img>");
         crystalImage.addClass("crystal-images");
@@ -47,12 +46,6 @@ function createTargetScore(){
     $("#target-score-to-guess").text(randomNumber); //showing the random generated number under the Target Score title; ref html page
     console.log("Target Score: " + randomNumber);
     return randomNumber;
-}
-
-function initializeGame(){
-    targetScore = createTargetScore();
-    crystalSetUp();
-    yourScore = 0;
 }
 
 // Increments your score by crystal value
@@ -71,11 +64,11 @@ function checkYourScore(){
     if (yourScore === targetScore) {
         wins++;
         $("#number-of-wins").text(wins);
-        gameRestart();
+        runNewGame();
     } else if (yourScore > targetScore){
         losses++;
         $("#number-of-losses").text(losses);
-        gameRestart();
+        runNewGame();
     } else {
         return;
     }
