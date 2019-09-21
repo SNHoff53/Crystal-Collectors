@@ -1,6 +1,6 @@
 body{
-    background-image: url("/Users/stephaniehoffman/unit-4-game/assets/images/colorful-crystal.webp");
-    background-size: auto;
+    background-image: url("../images/pink-purple-crystal.jpg");
+    background-size: 88%;
 }
 
 .jumbotron {
